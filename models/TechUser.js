@@ -1,6 +1,20 @@
+
+/*
+  Require Modules
+*/
 const { Model, DataTypes } = require( "sequelize" );
 const sequelize = require( "../config/connection" );
 
+/*
+  Create TechUser Model
+    1). Create id, username, password columns
+  
+  Configure the Model with settings:
+    1). sequelize - reference the sequelize instance
+    2). freezeTableName : true - disable pluralization
+    3). underscored : true - use snake_case for columns
+    4). set the model name
+*/
 class TechUser extends Model{}
 
 TechUser.init(
@@ -25,9 +39,11 @@ TechUser.init(
     sequelize,
     freezeTableName : true,
     underscored : true,
-    timestamps : false,
     modelName : "tech_user"
   }
 );
 
+/*
+  Export TechUser
+*/
 module.exports = TechUser;
