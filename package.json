@@ -1,0 +1,16 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "A Blog site where developers can publish and comment on posts.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alejandro Martinez",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
