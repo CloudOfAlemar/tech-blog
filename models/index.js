@@ -14,8 +14,9 @@ TechUser.hasMany( Post, {
   onDelete : "CASCADE"
 } );
 
-Post.belongsTo( Post, {
-  foreignKey : "tech_user_id"
+Post.belongsTo( TechUser, {
+  foreignKey : "tech_user_id",
+  as : "author"
 } );
 
 TechUser.hasMany( Comment, {
