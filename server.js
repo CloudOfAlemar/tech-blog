@@ -5,12 +5,22 @@ const path = require( "path" );
 
 const express = require( "express" );
 const sequelize = require( "./config/connection" );
+const exphbs = require( "express-handlebars" );
 
 const { TechUser, Post, Comment } = require( "./models" );
 const routes = require( "./controllers" );
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const hbs = exphbs.create( {  } );
+
+/*
+  Configure Express.js to use handlebars as a templating engine
+  for rendering views
+*/
+app.engine( "handlebars", hbs.engine );
+app.set( "view engine", "handlebars" );
 
 /*
   Middleware:
