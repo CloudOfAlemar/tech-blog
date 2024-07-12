@@ -1,0 +1,12 @@
+[
+  {
+    "title" : "Learning to Code",
+    "content" : "We are learning about ORM and MVC at the moment.",
+    "tech_user_id" : 1
+  },
+  {
+    "title" : "ACOTAR",
+    "content" : "OMG! Reysend is the best character!",
+    "tech_user_id" : 2
+  }
+]
