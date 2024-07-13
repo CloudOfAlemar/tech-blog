@@ -25,7 +25,8 @@ TechUser.hasMany( Comment, {
 } );
 
 Comment.belongsTo( TechUser, {
-  foreignKey : "tech_user_id"
+  foreignKey : "tech_user_id",
+  as : "comment_author"
 } );
 
 Post.hasMany( Comment, {

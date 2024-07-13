@@ -9,11 +9,12 @@ const exphbs = require( "express-handlebars" );
 
 const { TechUser, Post, Comment } = require( "./models" );
 const routes = require( "./controllers" );
+const helpers = require( "./utils/helpers" );
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create( {  } );
+const hbs = exphbs.create( { helpers } );
 
 /*
   Configure Express.js to use handlebars as a templating engine

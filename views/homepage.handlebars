@@ -5,28 +5,29 @@
   <div class="card mb-3">
 
     {{!-- Card Header --}}
-    <div class="card-header">
-      {{post.title}}
+    <div class="card-header d-flex justify-content-between">
+      <h5 class="m-0">{{ post.title }}</h5>
+      <p class="m-0">Posted by {{ post.author.username }} on {{ formatDate post.createdAt }}</p>
     </div>
 
     {{!-- Card Body --}}
     <div class="card-body">
-      <p class="card-text">{{post.content}}</p>
+      <p class="card-text">{{ post.content }}</p>
 
       {{!-- Modal Button --}}
       {{!-- Button Trigger Modal --}}
-      <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#commentsModal{{post.id}}">
+      <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#commentsModal{{ post.id }}">
         comments
       </button>
 
       {{!-- Modal --}}
-      <div class="modal fade" id="commentsModal{{post.id}}" tabindex="-1" role="dialog" aria-labelledby="commentsModalTitle{{post.id}}" aria-hidden="true">
+      <div class="modal fade" id="commentsModal{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="commentsModalTitle{{ post.id }}" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
 
             {{!-- Modal Header --}}
             <div class="modal-header">
-              <h5 class="modal-title" id="commentsModalTitle{{post.id}}">Comments</h5>
+              <h5 class="modal-title" id="commentsModalTitle{{ post.id }}">Comments</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -36,7 +37,16 @@
             <div class="modal-body">
               {{!-- Modal Body Content --}}
               {{#each post.comments as |comment|}}
-                <p>{{comment.content}}</p>
+                <div class="card">
+                  <div class="card-body">
+                    <p class="m-0">{{ comment.content }}</p>
+                  </div>
+                  <div class="card-footer text-muted">
+                    <p class="m-0">
+                      - {{ comment.comment_author.username }}, {{ formatDate comment.comment_author.createdAt }}
+                    </p>
+                  </div>
+                </div>
               {{/each}}
             </div>
           </div>
