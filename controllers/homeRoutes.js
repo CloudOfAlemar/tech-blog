@@ -19,12 +19,12 @@ router.get( "/", async ( req, res ) => {
   }
 } );
 
-router.get( "/login", async ( req, res ) => {
-  try {
+router.get( "/login", ( req, res ) => {
     res.render( "login" );
-  } catch( error ) {
-    res.status( 500 ).json( { error } );
-  }
+} );
+
+router.get( "/signup", ( req, res ) => {
+  res.render( "signup" );
 } );
 
 module.exports = router;
