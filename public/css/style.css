@@ -1,0 +1,13 @@
+
+.modal-content {
+  height: 550px;
+}
+
+.comments-wrapper {
+  height: 300px;
+  overflow: auto;
+}
+
+.comments-form {
+  height: 145px;
+}

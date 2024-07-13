@@ -1,10 +1,22 @@
 [
   {
     "username" : "alemar",
-    "password" : "01234"
+    "password" : "00000"
   },
   {
     "username" : "arebor3",
-    "password" : "56789"
+    "password" : "00001"
+  },
+  {
+    "username" : "Briguy",
+    "password" : "00002"
+  },
+  {
+    "username" : "andykins",
+    "password" : "00003"
+  },
+  {
+    "username" : "jlnmrt",
+    "password" : "00004"
   }
 ]

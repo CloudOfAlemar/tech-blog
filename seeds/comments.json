@@ -3,5 +3,35 @@
     "content" : "I will read this book eventually.",
     "post_id" : 2,
     "tech_user_id" : 1
+  },
+  {
+    "content" : "People say this book is really good.",
+    "post_id" : 2,
+    "tech_user_id" : 3
+  },
+  {
+    "content" : "I haven't read it yet, I need to check it out.",
+    "post_id" : 2,
+    "tech_user_id" : 5
+  },
+  {
+    "content" : "Goodluck! I hope you score!!",
+    "post_id" : 4,
+    "tech_user_id" : 1
+  },
+  {
+    "content" : "See you soon brotha! :)",
+    "post_id" : 5,
+    "tech_user_id" : 1
+  },
+  {
+    "content" : "We'll go to the park like we used to.",
+    "post_id" : 5,
+    "tech_user_id" : 4
+  },
+  {
+    "content" : "You'll be fine, I'll be there to guide you. ",
+    "post_id" : 3,
+    "tech_user_id" : 1
   }
 ]

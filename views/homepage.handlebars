@@ -5,9 +5,9 @@
   <div class="card mb-3">
 
     {{!-- Card Header --}}
-    <div class="card-header d-flex justify-content-between">
+    <div class="card-header">
       <h5 class="m-0">{{ post.title }}</h5>
-      <p class="m-0">Posted by {{ post.author.username }} on {{ formatDate post.createdAt }}</p>
+      <p class="m-0 text-muted">Posted by {{ post.author.username }} on {{ formatDate post.createdAt }}</p>
     </div>
 
     {{!-- Card Body --}}
@@ -35,19 +35,30 @@
 
             {{!-- Modal Body --}}
             <div class="modal-body">
-              {{!-- Modal Body Content --}}
-              {{#each post.comments as |comment|}}
-                <div class="card">
-                  <div class="card-body">
-                    <p class="m-0">{{ comment.content }}</p>
+              <div class="comments-wrapper mb-3">
+
+                {{!-- Modal Body: Comments --}}
+                {{#each post.comments as |comment|}}
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <p class="m-0">{{ comment.content }}</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                      <p class="m-0">
+                        - {{ comment.comment_author.username }}, {{ formatDate comment.comment_author.createdAt }}
+                      </p>
+                    </div>
                   </div>
-                  <div class="card-footer text-muted">
-                    <p class="m-0">
-                      - {{ comment.comment_author.username }}, {{ formatDate comment.comment_author.createdAt }}
-                    </p>
-                  </div>
+                {{/each}}
+              </div>
+
+              {{!-- Modal Body: Comments Form --}}
+              <form class="comments-form">
+                <div class="form-group mb-2">
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Share comments..."></textarea>
                 </div>
-              {{/each}}
+                <button type="submit" class="btn btn-primary">Add Comment</button>
+              </form>
             </div>
           </div>
         </div>
