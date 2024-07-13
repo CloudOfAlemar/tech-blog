@@ -10,8 +10,9 @@ router.get( "/", async ( req, res ) => {
         { model : TechUser, as : "author" }
       ]
     } );
-    // res.status( 200 ).json( postsData );
-    res.render( "homepage");
+    const posts = postsData.map( post => post.get( { plain : true } ) );
+    console.log( posts );
+    res.render( "homepage", { posts } );
   } catch( error ) {
     res.status( 500 ).json( { error } );
   }

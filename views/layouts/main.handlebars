@@ -9,7 +9,34 @@
 </head>
 <body>
   
-  {{{ body }}}
+  <div class="container-fluid px-0">
+
+    {{!-- Header --}}
+    <header>
+
+      {{!-- Header Navigation --}}
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">The Tech Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Dashboard</a>
+            <a class="nav-item nav-link" href="#">Login</a>
+            <a class="nav-item nav-link" href="#">Logout</a>
+          </div>
+        </div>
+      </nav>
+
+    </header>
+
+    <main class="pt-5">
+      {{{ body }}}
+    </main>
+
+  </div>
 
 {{!-- Include Bootstrap JS --}}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
