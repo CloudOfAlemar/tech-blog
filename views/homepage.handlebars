@@ -35,7 +35,7 @@
 
               {{!-- Modal Body --}}
               <div class="modal-body">
-                <div class="comments-wrapper {{#unless loggedIn}}full-height{{/unless}} mb-3">
+                <div class="comments-wrapper {{#unless ../loggedIn}}full-height{{/unless}} mb-3">
 
                   {{!-- Modal Body: Comments --}}
                   {{#each post.comments as |comment|}}
@@ -51,8 +51,8 @@
                     </div>
                   {{/each}}
                 </div>
-                
-                {{#if loggedIn}}
+
+                {{#if ../loggedIn}}
                   {{!-- Modal Body: Comments Form --}}
                   <form id="comments-form">
                     <div class="form-group mb-2">
@@ -60,6 +60,8 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Add Comment</button>
                   </form>
+                {{else}}
+                  <p class="text-danger">Log In to post comments.</p>
                 {{/if}}
               </div>
             </div>

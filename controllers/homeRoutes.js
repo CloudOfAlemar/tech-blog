@@ -11,9 +11,10 @@ router.get( "/", async ( req, res ) => {
       ]
     } );
     const posts = postsData.map( post => post.get( { plain : true } ) );
-    console.log( posts );
-    console.log( posts[0].comments );
-    res.render( "homepage", { posts, loggedIn : req.session.loggedIn } );
+
+    let loggedIn = req.session.loggedIn || false;
+    
+    res.render( "homepage", { posts, loggedIn } );
   } catch( error ) {
     res.status( 500 ).json( { error } );
   }
@@ -39,8 +40,9 @@ router.get( "/dashboard", async ( req, res ) => {
       } );
   
       const techUserPosts = techUserPostData.map( techUserPost => techUserPost.get( { plain : true } ) );
-      console.log( techUserPosts );
-      res.render( "dashboard", { techUserPosts, loggedIn : req.session.loggedIn } );
+      
+      let loggedIn = req.session.loggedIn || false;
+      res.render( "dashboard", { techUserPosts, loggedIn } );
     } else {
       res.render( "dashboard", { loggedIn : req.session.loggedIn } );
     }

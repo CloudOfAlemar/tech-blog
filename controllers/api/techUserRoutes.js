@@ -6,7 +6,6 @@ router.post( "/", async ( req, res ) => {
   try {
     const newTechUserData = await TechUser.create( req.body );
     const newTechUser = newTechUserData.get( { plain : true } );
-    // console.log( newTechUser );
 
     req.session.save( () => {
       req.session.techUserId = newTechUser.id;
