@@ -1,10 +1,13 @@
 
-<h2>Dashboard</h2>
+<div class="container">
+  <h2>Dashboard</h2>
+</div>
 
 <div class="container">
   {{#if loggedIn}}
     <p>Logged In</p>
   {{else}}
-    <p>Not Loggin In</p>
+    <p>Your not currently logged in. Please login to see your dashboard.</p>
+    <a href="/login" class="btn btn-primary">Login</a>
   {{/if}}
 </div>
