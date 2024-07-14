@@ -1,11 +1,16 @@
 
 .modal-content {
   height: 550px;
+  overflow: auto;
 }
 
 .comments-wrapper {
   height: 300px;
   overflow: auto;
+}
+
+.comments-wrapper.full-height {
+  height: auto;
 }
 
 .comments-form {

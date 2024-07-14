@@ -33,5 +33,15 @@
     "content" : "You'll be fine, I'll be there to guide you. ",
     "post_id" : 3,
     "tech_user_id" : 1
+  },
+  {
+    "content" : "Awe man! I wish I could've seen you in your prime!",
+    "post_id" : 6,
+    "tech_user_id" : 3
+  },
+  {
+    "content" : "I want to read it too!",
+    "post_id" : 2,
+    "tech_user_id" : 4
   }
 ]

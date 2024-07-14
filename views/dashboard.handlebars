@@ -1,11 +1,74 @@
 
 <div class="container">
-  <h2>Dashboard</h2>
-</div>
-
-<div class="container">
+  <h2 class="mb-5">Dashboard</h2>
   {{#if loggedIn}}
-    <p>Logged In</p>
+
+    {{#each techUserPosts as |post|}}
+      <div class="card mb-3">
+
+        {{!-- Card Header --}}
+        <div class="card-header">
+          <h5 class="m-0">{{ post.title }}</h5>
+          <p class="m-0 text-muted">Posted by {{ post.author.username }} on {{ formatDate post.createdAt }}</p>
+        </div>
+
+        {{!-- Card Body --}}
+        <div class="card-body">
+          <p class="card-text">{{ post.content }}</p>
+
+          {{!-- Modal Button --}}
+          {{!-- Button Trigger Modal --}}
+          <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#commentsModal{{ post.id }}">
+            comments
+          </button>
+
+          {{!-- Modal --}}
+          <div class="modal fade" id="commentsModal{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="commentsModalTitle{{ post.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+
+                {{!-- Modal Header --}}
+                <div class="modal-header">
+                  <h5 class="modal-title" id="commentsModalTitle{{ post.id }}">Comments</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                {{!-- Modal Body --}}
+                <div class="modal-body">
+                  <div class="comments-wrapper mb-3">
+
+                    {{!-- Modal Body: Comments --}}
+                    {{#each post.comments as |comment|}}
+                      <div class="card mb-3">
+                        <div class="card-body">
+                          <p class="m-0">{{ comment.content }}</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                          <p class="m-0">
+                            - {{ comment.comment_author.username }}, {{ formatDate comment.comment_author.createdAt }}
+                          </p>
+                        </div>
+                      </div>
+                    {{/each}}
+                  </div>
+
+                  {{!-- Modal Body: Comments Form --}}
+                  <form class="comments-form">
+                    <div class="form-group mb-2">
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Share comments..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Comment</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+
   {{else}}
     <p>Your not currently logged in. Please login to see your dashboard.</p>
     <a href="/login" class="btn btn-primary">Login</a>

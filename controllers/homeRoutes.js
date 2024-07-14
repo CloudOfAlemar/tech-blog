@@ -32,7 +32,10 @@ router.get( "/dashboard", async ( req, res ) => {
     if( req.session.techUserId ) {
       const techUserPostData = await Post.findAll( {
         where : { tech_user_id : req.session.techUserId },
-        include : { model : Comment, include : { model : TechUser, as : "comment_author" } }
+        include : [
+          { model : Comment, include : { model : TechUser, as : "comment_author" } },
+          { model : TechUser, as : "author" }
+        ]
       } );
   
       const techUserPosts = techUserPostData.map( techUserPost => techUserPost.get( { plain : true } ) );
