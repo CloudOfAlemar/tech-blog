@@ -6,7 +6,7 @@ router.post( "/", async ( req, res ) => {
   try {
     const newTechUserData = await TechUser.create( req.body );
     const newTechUser = newTechUserData.get( { plain : true } );
-    console.log( newTechUser );
+    // console.log( newTechUser );
 
     req.session.save( () => {
       req.session.techUserId = newTechUser.id;
@@ -38,6 +38,16 @@ router.post( "/login", async ( req, res ) => {
     } );
   } catch( error ) {
     res.status( 500 ).json( { error } );
+  }
+} );
+
+router.post( "/logout", async ( req, res ) => {
+  if( req.session.loggedIn ) {
+    req.session.destroy( () => {
+      res.status( 204 ).end();
+    } );
+  } else {
+    res.status( 204 ).end();
   }
 } );
 
