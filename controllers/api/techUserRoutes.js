@@ -19,4 +19,26 @@ router.post( "/", async ( req, res ) => {
   }
 } );
 
+router.post( "/login", async ( req, res ) => {
+  try {
+    const techUserData = await TechUser.findOne( { where : { username : req.body.username } } );
+
+    if( !techUserData ) {
+      res.status( 404 ).json( { message : "User not found." } );
+      return;
+    }
+
+    const techUser = techUserData.get( { plain : true } );
+
+    req.session.save( () => {
+      req.session.techUserId = techUser.id;
+      req.session.loggedIn = true;
+
+      res.status( 200 ).json( techUser );
+    } );
+  } catch( error ) {
+    res.status( 500 ).json( { error } );
+  }
+} );
+
 module.exports = router;

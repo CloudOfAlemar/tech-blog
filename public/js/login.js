@@ -1,12 +1,12 @@
 
-const signupFormHandler = async event => {
+const loginFormHandler = async event => {
   event.preventDefault();
 
   const username = document.querySelector( "#username" ).value.trim();
   const password = document.querySelector( "#password" ).value.trim();
 
   if( username && password ) {
-    const response = await fetch( "/api/techUsers", {
+    const response = await fetch( "/api/techUsers/login", {
       method : "POST",
       body : JSON.stringify( { username, password } ),
       headers : { "Content-Type" : "application/json" }
@@ -15,10 +15,10 @@ const signupFormHandler = async event => {
     if( response.ok ) {
       document.location.replace( "/dashboard" );
     } else {
-      alert( response.status );
+      alert( { error : response.statusText } );
     }
   }
 }
 
-document.querySelector( "#signup-form" )
-.addEventListener( "submit", signupFormHandler );
+document.querySelector( "#login-form" )
+.addEventListener( "submit", loginFormHandler );
