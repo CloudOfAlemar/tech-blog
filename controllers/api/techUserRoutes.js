@@ -7,7 +7,13 @@ router.post( "/", async ( req, res ) => {
     const newTechUserData = await TechUser.create( req.body );
     const newTechUser = newTechUserData.get( { plain : true } );
     console.log( newTechUser );
-    res.status( 201 ).json( newTechUser );
+
+    req.session.save( () => {
+      req.session.techUserId = newTechUser.id;
+      req.session.loggedIn = true;
+
+      res.status( 201 ).json( newTechUser );
+    } );
   } catch( error ) {
     res.status( 500 ).json( { error } );
   }
