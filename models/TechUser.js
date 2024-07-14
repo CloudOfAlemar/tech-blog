@@ -15,7 +15,11 @@ const sequelize = require( "../config/connection" );
     3). underscored : true - use snake_case for columns
     4). set the model name
 */
-class TechUser extends Model{}
+class TechUser extends Model{
+  checkPassword( password ) {
+    return password === this.password;
+  }
+}
 
 TechUser.init(
   {

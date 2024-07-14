@@ -24,7 +24,14 @@ router.post( "/login", async ( req, res ) => {
     const techUserData = await TechUser.findOne( { where : { username : req.body.username } } );
 
     if( !techUserData ) {
-      res.status( 404 ).json( { message : "User not found." } );
+      res.status( 404 ).json( { message : "Incorrect username or password." } );
+      return;
+    }
+
+    const validatePassword = techUserData.checkPassword( req.body.password );
+
+    if( !validatePassword ) {
+      res.status( 404 ).json( { message : "Incorrect username or password." } );
       return;
     }
 
@@ -37,7 +44,7 @@ router.post( "/login", async ( req, res ) => {
       res.status( 200 ).json( techUser );
     } );
   } catch( error ) {
-    res.status( 500 ).json( { error } );
+    res.status( 400 ).json( error );
   }
 } );
 
