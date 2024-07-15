@@ -12,9 +12,12 @@ router.get( "/", async ( req, res ) => {
     } );
     const posts = postsData.map( post => post.get( { plain : true } ) );
 
-    let loggedIn = req.session.loggedIn || false;
-    
-    res.render( "homepage", { posts, loggedIn } );
+    const loggedIn = req.session.loggedIn || false;
+    const techUserId = req.session.techUserId;
+
+    console.log( posts );
+
+    res.render( "homepage", { posts, loggedIn, techUserId } );
   } catch( error ) {
     res.status( 500 ).json( { error } );
   }

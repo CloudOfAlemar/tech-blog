@@ -2,7 +2,7 @@
 
   {{!-- Create a card for each post --}}
   {{#each posts as |post|}}
-    <div class="card mb-3">
+    <div class="card mb-3 post" data-post-id="{{post.id}}" data-tech-user-id="{{../techUserId}}">
 
       {{!-- Card Header --}}
       <div class="card-header">
@@ -54,9 +54,9 @@
 
                 {{#if ../loggedIn}}
                   {{!-- Modal Body: Comments Form --}}
-                  <form id="comments-form">
+                  <form class="comments-form">
                     <div class="form-group mb-2">
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Share comments..."></textarea>
+                      <textarea class="form-control comment-content" rows="3" placeholder="Share comments..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Add Comment</button>
                   </form>
@@ -73,5 +73,5 @@
 </div>
 
 {{#if loggedIn}}
-  <script src="/js/comments.js"></script>
+  <script type="module" src="/js/comments.js"></script>
 {{/if}}
