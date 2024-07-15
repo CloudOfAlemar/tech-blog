@@ -44,8 +44,10 @@ router.get( "/dashboard", async ( req, res ) => {
   
       const techUserPosts = techUserPostData.map( techUserPost => techUserPost.get( { plain : true } ) );
       
-      let loggedIn = req.session.loggedIn || false;
-      res.render( "dashboard", { techUserPosts, loggedIn } );
+      const loggedIn = req.session.loggedIn || false;
+      const techUserId = req.session.techUserId;
+
+      res.render( "dashboard", { techUserPosts, loggedIn, techUserId } );
     } else {
       res.render( "dashboard", { loggedIn : req.session.loggedIn } );
     }
