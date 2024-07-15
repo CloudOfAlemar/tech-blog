@@ -25,12 +25,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+            <a class="nav-item nav-link {{#if ( checkRoute currentRoute "home" )}}active{{/if}}" href="/">Home {{#if ( checkRoute currentRoute "dashboard" )}}<span class="sr-only">(current)</span>{{/if}}</a>
+            <a class="nav-item nav-link {{#if ( checkRoute currentRoute "dashboard" )}}active{{/if}}" href="/dashboard">Dashboard {{#if ( checkRoute currentRoute "dashboard" )}}<span class="sr-only">(current)</span>{{/if}}</a>
             {{#if loggedIn }}
               <a class="nav-item nav-link" id="logout-btn" href="#">Logout</a>
             {{else}}
-              <a class="nav-item nav-link" href="/login">Login</a>
+              <a class="nav-item nav-link {{#if ( checkRoute currentRoute "login" )}}active{{/if}}" href="/login">Login {{#if ( checkRoute currentRoute "dashboard" )}}<span class="sr-only">(current)</span>{{/if}}</a>
+              <a class="nav-item nav-link {{#if ( checkRoute currentRoute "signup" )}}active{{/if}}" href="/signup">Sign Up {{#if ( checkRoute currentRoute "dashboard" )}}<span class="sr-only">(current)</span>{{/if}}</a>
             {{/if}}
           </div>
         </div>

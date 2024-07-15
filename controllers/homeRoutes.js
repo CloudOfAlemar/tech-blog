@@ -15,20 +15,18 @@ router.get( "/", async ( req, res ) => {
     const loggedIn = req.session.loggedIn || false;
     const techUserId = req.session.techUserId;
 
-    console.log( posts );
-
-    res.render( "homepage", { posts, loggedIn, techUserId } );
+    res.render( "homepage", { posts, loggedIn, techUserId, currentRoute : "home" } );
   } catch( error ) {
     res.status( 500 ).json( { error } );
   }
 } );
 
 router.get( "/login", ( req, res ) => {
-    res.render( "login" );
+    res.render( "login", { currentRoute : "login" } );
 } );
 
 router.get( "/signup", ( req, res ) => {
-  res.render( "signup" );
+  res.render( "signup", { currentRoute : "signup" } );
 } );
 
 router.get( "/dashboard", async ( req, res ) => {
@@ -49,7 +47,7 @@ router.get( "/dashboard", async ( req, res ) => {
 
       res.render( "dashboard", { techUserPosts, loggedIn, techUserId } );
     } else {
-      res.render( "dashboard", { loggedIn : req.session.loggedIn } );
+      res.render( "dashboard", { loggedIn : req.session.loggedIn, currentRoute : "dashboard" } );
     }
   } catch( error ) {
     res.status( 500 ).json( { error } );

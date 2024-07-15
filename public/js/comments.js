@@ -21,7 +21,6 @@ const commentHandler = async event => {
   const newComment = await response.json();
 
   if( response.ok ) {
-    console.log( newComment );
     addCommentToDOM( newComment );
     commentContent.value = "";
   } else {

@@ -11,7 +11,6 @@ export function addCommentToDOM( newComment ) {
         - ${ newComment.comment_author.username }, ${ new Date( newComment.createdAt ).toLocaleDateString( "en-US" ) }
       </p>
     </div>`;
-  console.log( commentCard );
   commentsWrapper.appendChild( commentCard );
   return commentCard;
 }
