@@ -45,6 +45,8 @@ router.get( "/dashboard", async ( req, res ) => {
       const loggedIn = req.session.loggedIn || false;
       const techUserId = req.session.techUserId;
 
+      console.log( techUserPosts );
+
       res.render( "dashboard", { techUserPosts, loggedIn, techUserId, currentRoute : "dashboard" } );
     } else {
       res.render( "dashboard", { loggedIn : req.session.loggedIn, currentRoute : "dashboard" } );

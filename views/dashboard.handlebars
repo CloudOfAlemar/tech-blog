@@ -44,14 +44,55 @@
       <div class="card mb-3 post" data-post-id="{{post.id}}" data-tech-user-id="{{../techUserId}}">
 
         {{!-- Card Header --}}
-        <div class="card-header">
-          <h5 class="m-0">{{ post.title }}</h5>
-          <p class="m-0 text-muted">Posted by {{ post.author.username }} on {{ formatDate post.createdAt }}</p>
+        <div class="card-header d-flex justify-content-between">
+          <div class="card-header-left">
+            <h5 class="m-0 post-title">{{ post.title }}</h5>
+            <p class="m-0 text-muted">Posted by {{ post.author.username }} on {{ formatDate post.createdAt }}</p>
+          </div>
+          <div class="card-header-right">
+
+            {{!-- Button Trigger: Update Post Modal --}}
+            <button class="btn btn-info btn-sm update-post-trigger-btn" data-toggle="modal" data-target="#updatePostModal">Update Post</button>
+
+            {{!-- Update Post Modal --}}
+            <div class="modal fade" id="updatePostModal" tabindex="-1" role="dialog" aria-labelledby="updatePostModalTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="updatePostModalTitle">Update Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    
+                    {{!-- Update Post Form --}}
+                    <form class="update-post-form" id="update-post-form">
+                      <div class="form-group">
+                        <label for="update-post-title">Title</label>
+                        <input type="text" class="form-control update-post-title" id="update-post-title" aria-describedby="updatePostTitle">
+                      </div>
+                      <div class="form-group">
+                        <label for="update-post-content">Content</label>
+                        <textarea class="form-control update-post-content" id="update-post-content" rows="3"></textarea>
+                      </div>
+                      <button type="submit" id="submit-update-post-btn" class="btn btn-info">Update</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-danger btn-sm">Delete Post</button>
+          </div>
         </div>
 
         {{!-- Card Body --}}
         <div class="card-body">
-          <p class="card-text">{{ post.content }}</p>
+          <p class="card-text post-content">{{ post.content }}</p>
 
           {{!-- Modal Button --}}
           {{!-- Button Trigger Modal --}}
@@ -94,7 +135,7 @@
                   {{!-- Modal Body: Comments Form --}}
                   <form class="comments-form">
                     <div class="form-group mb-2">
-                      <textarea class="form-control comment-content" rows="3" placeholder="Share comments..."></textarea>
+                      <textarea class="form-control comment-content" id="comment-content" rows="3" placeholder="Share comments..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Add Comment</button>
                   </form>
@@ -115,4 +156,5 @@
 {{#if loggedIn}}
   <script type="module" src="/js/comments.js"></script>
   <script src="/js/posts.js"></script>
+  <script src="/js/update.js"></script>
 {{/if}}

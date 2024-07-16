@@ -12,4 +12,19 @@ router.post( "/", async ( req, res ) => {
   }
 } );
 
+router.put( "/:id", async ( req, res ) => {
+  try {
+    const postData = await Post.findByPk( req.params.id );
+    const updatedPostData = await postData.update( {
+      title : req.body.title,
+      content : req.body.content
+    } );
+
+    const updatedPost = postData.get( { plain : true } );
+    res.status( 200 ).json( updatedPost );
+  } catch( error ) {
+    res.status( 500 ).json( { error } );
+  }
+} );
+
 module.exports = router;

@@ -8,10 +8,9 @@ const commentData = require( "./comments.json" );
 
 const syncDatabase = async () => {
   await sequelize.sync( { force : true } );
-
-  const techUsers = await TechUser.bulkCreate( techUserData, {
-    individualHooks : true
-  } );
+  for( const techUser of techUserData ) {
+    await TechUser.create( techUser, { individualHooks : true } );
+  }
   const posts = await Post.bulkCreate( postData );
   const comments = await Comment.bulkCreate( commentData );
   process.exit( 0 );
