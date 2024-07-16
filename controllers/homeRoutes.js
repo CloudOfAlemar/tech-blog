@@ -6,8 +6,20 @@ router.get( "/", async ( req, res ) => {
   try {
     const postsData = await Post.findAll( {
       include : [
-        { model : Comment, include : { model : TechUser, as : "comment_author" } },
-        { model : TechUser, as : "author" }
+        {
+          model : Comment, 
+          include : {
+            model : TechUser,
+            as : "comment_author",
+            attributes : {
+              exclude : [ "password" ]
+            }
+          }
+        },
+        {
+          model : TechUser,
+          as : "author",
+        }
       ]
     } );
     const posts = postsData.map( post => post.get( { plain : true } ) );
@@ -33,10 +45,21 @@ router.get( "/dashboard", async ( req, res ) => {
   try {
     if( req.session.techUserId ) {
       const techUserPostData = await Post.findAll( {
-        where : { tech_user_id : req.session.techUserId },
+        where : {
+          tech_user_id : req.session.techUserId
+        },
         include : [
-          { model : Comment, include : { model : TechUser, as : "comment_author" } },
-          { model : TechUser, as : "author" }
+          {
+            model : Comment,
+            include : {
+              model : TechUser,
+              as : "comment_author",
+            }
+          },
+          {
+            model : TechUser,
+            as : "author",
+          }
         ]
       } );
   

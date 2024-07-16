@@ -20,7 +20,7 @@ router.put( "/:id", async ( req, res ) => {
       content : req.body.content
     } );
 
-    const updatedPost = postData.get( { plain : true } );
+    const updatedPost = updatedPostData.get( { plain : true } );
     res.status( 200 ).json( updatedPost );
   } catch( error ) {
     res.status( 500 ).json( { error } );

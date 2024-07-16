@@ -6,7 +6,7 @@ router.post( "/", async ( req, res ) => {
   try {
     const newTechUserData = await TechUser.create( req.body );
     const newTechUser = newTechUserData.get( { plain : true } );
-
+    delete newTechUser.password;
     req.session.save( () => {
       req.session.techUserId = newTechUser.id;
       req.session.loggedIn = true;
@@ -20,7 +20,13 @@ router.post( "/", async ( req, res ) => {
 
 router.post( "/login", async ( req, res ) => {
   try {
-    const techUserData = await TechUser.findOne( { where : { username : req.body.username } } );
+    const techUserData = await TechUser.findOne(
+      {
+        where : {
+          username : req.body.username
+        },
+      }
+    );
 
     if( !techUserData ) {
       res.status( 404 ).json( { message : "Incorrect username or password." } );
@@ -35,6 +41,8 @@ router.post( "/login", async ( req, res ) => {
     }
 
     const techUser = techUserData.get( { plain : true } );
+
+    delete techUser.password;
 
     req.session.save( () => {
       req.session.techUserId = techUser.id;
