@@ -4,6 +4,7 @@
 */
 const { Model, DataTypes } = require( "sequelize" );
 const sequelize = require( "../config/connection" );
+const bcrypt = require( "bcrypt" );
 
 /*
   Create TechUser Model
@@ -17,7 +18,7 @@ const sequelize = require( "../config/connection" );
 */
 class TechUser extends Model{
   checkPassword( password ) {
-    return password === this.password;
+    return bcrypt.compareSync( password, this.password );
   }
 }
 
@@ -36,10 +37,19 @@ TechUser.init(
     },
     password : {
       type : DataTypes.STRING,
-      allowNull : false
+      allowNull : false,
+      validate : {
+        len : [ 8 ]
+      }
     }
   },
   {
+    hooks : {
+      beforeCreate : async newUserData => {
+        newUserData.password = await bcrypt.hash( newUserData.password, 10 );
+        return newUserData;
+      }
+    },
     sequelize,
     freezeTableName : true,
     underscored : true,
