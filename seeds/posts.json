@@ -5,28 +5,28 @@
     "tech_user_id" : 1
   },
   {
-    "title" : "ACOTAR",
-    "content" : "OMG! Rhysand is the best character!",
+    "title" : "Frontend",
+    "content" : "I love learning about HTML, CSS and JavaScript.",
     "tech_user_id" : 2
   },
   {
-    "title" : "Starting High School",
-    "content" : "I'm nervous! Starting High School in a month, I can't wait!",
+    "title" : "Coding Course",
+    "content" : "These assignments have been getting tough.",
     "tech_user_id" : 3
   },
   {
-    "title" : "Soccer Tournament Coming Soon",
-    "content" : "I have a tournament coming soon and I want to score a goal!",
+    "title" : "Experience",
+    "content" : "I'm ready to find a entry level job and work my way up.",
     "tech_user_id" : 4
   },
   {
-    "title" : "Been Away For A While",
-    "content" : "Can't wait to see everyone soon :)",
+    "title" : "Coding Podcast",
+    "content" : "Where can I find a popular coding podcast to listen to?",
     "tech_user_id" : 5
   },
   {
-    "title" : "I'm Retiring From Soccer",
-    "content" : "I won't enjoy it as much as I use to when I was completely healthy :(",
+    "title" : "Job Search",
+    "content" : "Which jobs should I be looking for after the coding program?",
     "tech_user_id" : 1
   }
 ]

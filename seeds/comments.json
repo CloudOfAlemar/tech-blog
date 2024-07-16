@@ -1,46 +1,46 @@
 [
   {
-    "content" : "I will read this book eventually.",
+    "content" : "Me too! I want to be a frontend Master!",
     "post_id" : 2,
     "tech_user_id" : 1
   },
   {
-    "content" : "People say this book is really good.",
+    "content" : "My favorite is CSS, because I enjoy styling.",
     "post_id" : 2,
     "tech_user_id" : 3
   },
   {
-    "content" : "I haven't read it yet, I need to check it out.",
+    "content" : "Really? My favorite is Javascript :)",
     "post_id" : 2,
     "tech_user_id" : 5
   },
   {
-    "content" : "Goodluck! I hope you score!!",
+    "content" : "I'm going to look on linked in for good jobs too!",
     "post_id" : 4,
     "tech_user_id" : 1
   },
   {
-    "content" : "See you soon brotha! :)",
+    "content" : "You should start a podcast!!!",
     "post_id" : 5,
     "tech_user_id" : 1
   },
   {
-    "content" : "We'll go to the park like we used to.",
+    "content" : "I can be your honored guest :)",
     "post_id" : 5,
     "tech_user_id" : 4
   },
   {
-    "content" : "You'll be fine, I'll be there to guide you. ",
+    "content" : "Yes, but the assignments help with the group projects and I enjoy them.",
     "post_id" : 3,
     "tech_user_id" : 1
   },
   {
-    "content" : "Awe man! I wish I could've seen you in your prime!",
+    "content" : "Definitely one that'll help you grow as a developer.",
     "post_id" : 6,
     "tech_user_id" : 3
   },
   {
-    "content" : "I want to read it too!",
+    "content" : "I actually prefer backend development.",
     "post_id" : 2,
     "tech_user_id" : 4
   }
