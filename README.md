@@ -16,7 +16,7 @@ your own posts from the dashboard.
 - bootstrap
 
 ## Links
-[Link to Live Site (Render)]()
+[Link to Live Site (Render)](https://tech-blog-jtbf.onrender.com)
 
 ## Screenshot
 ![Tech Blog Screenshot](./tech-blog-screenshot.png)
