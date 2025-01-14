@@ -10,7 +10,7 @@ your own posts from the dashboard.
 - express js
 - postgreSQL database
 - express handlebars
-- eequelize
+- Sequelize
 - express session
 - bcrypt
 - bootstrap
